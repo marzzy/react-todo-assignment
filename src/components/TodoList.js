@@ -1,13 +1,11 @@
 import List from '@mui/material/List';
-import { TransitionGroup } from 'react-transition-group';
 import {TodoItem} from './TodoItem';
-import {useTodoContext} from "../contexts";
 import {Alert} from "@mui/material";
-import {useCallback, useEffect, useState} from "react";
+import useTodoStore from "../stores/useTodoStore";
 
 export function TodoList() {
 
-    const {todos} = useTodoContext();
+    const todos = useTodoStore((state) => state.list);
 
     return (
         <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>

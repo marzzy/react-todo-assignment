@@ -1,26 +1,23 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import {useTodoContext} from "../contexts";
 import {useCallback, useState} from "react";
+import useSnackbarStore from "../stores/useSnackbarStore";
+import useTodoStore from "../stores/useTodoStore";
 
 export function NewTodo() {
 
-    const {dispatch} = useTodoContext();
     const [newTodo, setNewTodo] = useState('');
+
+    const setSnackbarOpen = useSnackbarStore((state) => state.setOpen);
+    const addTodo = useTodoStore((state) => state.add);
 
     const addNewTodo = () => {
         if (newTodo === "") {
-            dispatch({
-                type: 'SNACKBAR_INPUT',
-                state: true
-            });
+            setSnackbarOpen();
             return;
         }
-        dispatch({
-            type: 'ADD',
-            todo: newTodo
-        });
+        addTodo(newTodo);
         setNewTodo('');
     }
 
