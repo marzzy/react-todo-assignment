@@ -40,18 +40,4 @@ const useTodoStore = create((set) => ({
     }
 }))
 
-/*
-
-toggleCompletedState: (id) => {
-    set((state) => ({
-      todos: state.todos.map((todo) =>
-        todo.id === id
-          ? ({ ...todo, completed: !todo.completed } as Todo)
-          : todo
-      ),
-    }));
-  },
-
-*/
-
 export default useTodoStore;

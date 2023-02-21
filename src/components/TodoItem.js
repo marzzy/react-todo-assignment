@@ -18,7 +18,7 @@ export function TodoItem(params) {
     return (
         <ListItem
             secondaryAction={
-                <IconButton edge="end" aria-label="deleteTodo" onClick={(event) => {deleteTodo(index)}}>
+                <IconButton edge="end" aria-label="deleteTodo" onClick={() => {deleteTodo(index)}}>
                     <DeleteIcon/>
                 </IconButton>
             }
@@ -32,7 +32,7 @@ export function TodoItem(params) {
                         tabIndex={-1}
                         disableRipple
                         inputProps={{'aria-labelledby': labelId}}
-                        onChange={(event) => {toggleTodo(index)}}
+                        onChange={() => {toggleTodo(index)}}
                     />
                 </ListItemIcon>
                 <ListItemText id={labelId} primary={text}/>
